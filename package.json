@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "mr-leo-dev",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Mr Leo blogging",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -13,12 +13,35 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
+    "babel-plugin-styled-components": "^1.10.1",
     "gatsby": "^2.10.0",
+    "gatsby-plugin-alias-imports": "^1.0.5",
+    "gatsby-plugin-manifest": "^2.2.0",
+    "gatsby-plugin-offline": "^2.2.0",
+    "gatsby-plugin-styled-components": "^3.1.0",
+    "gatsby-plugin-typescript": "^2.1.0",
+    "gatsby-plugin-typography": "^2.3.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-typography": "^0.16.19",
+    "styled-components": "^4.3.2",
+    "typeface-merriweather": "^0.0.72",
+    "typeface-montserrat": "^0.0.54",
+    "typography": "^0.16.19",
+    "typography-theme-alton": "^0.16.19",
+    "yarn": "^1.16.0"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "@types/node": "^12.0.10",
+    "@types/react": "^16.8.22",
+    "@types/react-dom": "^16.8.4",
+    "@types/styled-components": "^4.1.16",
+    "@types/typography": "^0.16.2",
+    "prettier": "^1.18.2",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.5.2"
   },
   "repository": {
     "type": "git",
