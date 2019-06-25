@@ -1,5 +1,5 @@
 import Typography from 'typography'
-import customTheme from 'typography-theme-alton'
+import customTheme from 'typography-theme-github'
 
 customTheme.overrideThemeStyles = () => {
   return {
@@ -8,6 +8,12 @@ customTheme.overrideThemeStyles = () => {
     },
     'a': {
       color: `#222`,
+    },
+    'a:hover': {
+      textDecoration: `none`,
+    },
+    'h1, h2, h3': {
+      borderBottomStyle: `none`,
     },
   }
 }

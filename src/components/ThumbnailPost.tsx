@@ -2,25 +2,30 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
-import exampleImage from '../../static/featured-example.png'
+interface IProps {
+  title: string
+  slug: string
+  publishedDate: string
+  description: string
+  heroImage: string
+}
 
 const StyledContainer = styled.div`
+  width: 33.3333%;
+
   article {
-    display: flex;
+    padding-right: ${props => props.theme.rhythm(1)};
 
     .thumb {
-      width: 66.66%;
-      padding-right: ${props => props.theme.rhythm(0.5)};
-
       img {
-        height: ${props => props.theme.rhythm(13)};
+        height: ${props => props.theme.rhythm(8)};
+        border: 1px solid rgba(0, 0, 0, .15);
         width: 100%;
       }
     }
 
     .content {
-      width: 33.34%;
-      padding: 0 ${props => props.theme.rhythm(0.5)};
+      padding: 0 ${props => props.theme.rhythm(0.5)} 0 0;
     }
 
     .description, .info {
@@ -38,8 +43,11 @@ const StyledContainer = styled.div`
   }
 
   @media only screen and (max-width: 767px) {
+    width: 100%;
+
     article {
       display: block;
+      padding-right: 0;
 
       .thumb {
         width: 100%;
@@ -60,17 +68,19 @@ const StyledContainer = styled.div`
   }
 `
 
-const FeaturedPost = () => {
-  const title = 'Convert flowed-project to Typescript'
-  const slug = 'convert-flowed-project-to-typescript'
-  const heroImage = exampleImage
-  const publishedDate = 'Jan 23, 2018'
-  const description = "First, I do not recommend everyone to move to TypeScript. Who's being happy with Flow, it’s fine"
+const ThumbnailPost = (props: IProps) => {
+  const {
+    slug,
+    heroImage,
+    title,
+    description,
+    publishedDate,
+  } = props
 
   return (
     <StyledContainer>
-      <Link to={`/${slug}`}>
-        <article>
+      <article>
+        <Link to={`/${slug}`}>
           <div className="thumb">
             <img src={heroImage} alt="" />
           </div>
@@ -79,10 +89,10 @@ const FeaturedPost = () => {
             <p className="description">{description}</p>
             <div className="info">{publishedDate}</div>
           </div>
-        </article>
-      </Link>
+        </Link>
+      </article>
     </StyledContainer>
   )
 }
 
-export default FeaturedPost
+export default ThumbnailPost

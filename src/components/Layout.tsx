@@ -22,6 +22,10 @@ const AppContainer = styled.div`
 	flex-direction: column;
   min-height: 100vh;
   background: ${props => props.theme.colors.mainBackground};
+
+  h2 {
+    margin-top: ${props => props.theme.rhythm(0.25)};
+  }
 `
 
 const HeaderContainer = styled.div`
