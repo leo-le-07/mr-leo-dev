@@ -30,7 +30,7 @@ const HeaderContainer = styled.div`
 const MainContainer = styled.div`
   flex: 1;
   padding: 0;
-  margin-top: ${props => props.theme.rhythm(0.5)};
+  margin-top: ${props => props.theme.rhythm(1.25)};
 
   main {
     margin-left: auto;

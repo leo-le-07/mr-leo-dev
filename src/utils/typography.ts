@@ -3,8 +3,11 @@ import customTheme from 'typography-theme-alton'
 
 customTheme.overrideThemeStyles = () => {
   return {
-    "a.gatsby-resp-image-link": {
+    'a.gatsby-resp-image-link': {
       boxShadow: `none`,
+    },
+    'a': {
+      color: `#222`,
     },
   }
 }
@@ -15,7 +18,7 @@ const typography = new Typography(customTheme)
 typography.overrideStyles = () => {
   return {
     body: {
-      background: '#F7F7F7'
+      background: '#FFFFFF'
     }
   }
 }

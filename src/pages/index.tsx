@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Layout from '@components/Layout'
+import FeaturedPost from '@components/FeaturedPost'
 
 interface IProps {
   location: ILocation
@@ -15,7 +16,7 @@ class HomePage extends React.Component<IProps, {}> {
     return (
       <Layout location={this.props.location}>
         <StyledContainer>
-          Home Page
+          <FeaturedPost />
         </StyledContainer>
       </Layout>
     )
