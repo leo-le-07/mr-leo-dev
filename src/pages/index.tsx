@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 
 import Layout from '@components/Layout'
+import Seo from '@components/Seo'
 import FeaturedPost from '@components/FeaturedPost'
 import ThumbnailPost from '@components/ThumbnailPost'
 
@@ -51,6 +52,7 @@ class HomePage extends React.Component<IProps, {}> {
     return (
       <Layout location={this.props.location}>
         <StyledContainer>
+          <Seo title="Mr Leo blog & portfolio" />
           <div className="featured-post-container">
             <FeaturedPost
               title={featuredPost.title}

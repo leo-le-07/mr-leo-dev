@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Image from 'gatsby-image'
 
 import Layout from '@components/Layout'
+import Seo from '@components/Seo'
 
 interface IProps {
   pageContext: {
@@ -65,6 +66,7 @@ class BlogPostTemplate extends React.Component<IProps, {}> {
     return (
       <Layout location={this.props.location}>
         <StyledContainer>
+          <Seo title={post.title} />
           <div className="header-container">
             <h1>{post.title}</h1>
             <div className="published-date">

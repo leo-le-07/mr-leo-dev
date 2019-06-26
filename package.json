@@ -1,7 +1,7 @@
 {
   "name": "mr-leo-dev",
   "private": true,
-  "description": "Mr Leo blogging",
+  "description": "Mr Leo blog and portfolio",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -19,6 +19,7 @@
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-manifest": "^2.2.0",
     "gatsby-plugin-offline": "^2.2.0",
+    "gatsby-plugin-react-helmet": "^3.1.0",
     "gatsby-plugin-styled-components": "^3.1.0",
     "gatsby-plugin-typescript": "^2.1.0",
     "gatsby-plugin-typography": "^2.3.0",
@@ -31,6 +32,7 @@
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
     "styled-components": "^4.3.2",
     "typeface-merriweather": "^0.0.72",
@@ -44,6 +46,7 @@
     "@types/node": "^12.0.10",
     "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
+    "@types/react-helmet": "^5.0.8",
     "@types/styled-components": "^4.1.16",
     "@types/typography": "^0.16.2",
     "prettier": "^1.18.2",

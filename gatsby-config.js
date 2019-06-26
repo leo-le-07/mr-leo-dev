@@ -22,6 +22,12 @@ if (!spaceId || !accessToken) {
 }
 
 module.exports = {
+  siteMetadata: {
+    title: `Mr Leo`,
+    author: `Mr Leo`,
+    description: `Mr Leo blog and portfolio`,
+    siteUrl: `https://www.mrleo.dev/`,
+  },
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-styled-components`,
@@ -76,6 +82,7 @@ module.exports = {
           `gatsby-remark-smartypants`,
         ],
       },
-    }
+    },
+    `gatsby-plugin-react-helmet`
   ]
 }
