@@ -23,9 +23,6 @@
       "@pages/*": [
         "src/pages/*"
       ],
-      "@static/*": [
-        "src/static/*"
-      ],
       "@components/*": [
         "src/components/*"
       ],

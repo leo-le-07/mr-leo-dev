@@ -79,10 +79,6 @@ const StyledContainer = styled.div`
       figcaption {
         text-align: center;
         font-style: italic;
-
-        &::first-letter {
-          text-transform: uppercase;
-        }
       }
     }
   }
@@ -216,7 +212,7 @@ export const pageQuery = graphql`
           title
           publishedDate(formatString: "MMM DD, YYYY")
           heroImage {
-            sizes(maxWidth: 192, maxHeight: 120, resizingBehavior: SCALE) {
+            sizes(maxWidth: 663, maxHeight: 338, resizingBehavior: SCALE) {
              ...GatsbyContentfulSizes_withWebp
             }
           }
