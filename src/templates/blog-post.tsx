@@ -47,6 +47,10 @@ interface IProps {
 }
 
 const StyledContainer = styled.div`
+  .reading-section-container {
+    padding: 0  ${props => props.theme.rhythm(5)};
+  }
+
   .header-container {
     h1 {
       margin-top: 0;
@@ -111,6 +115,9 @@ const StyledContainer = styled.div`
   }
 
   @media only screen and (max-width: 767px) {
+    .reading-section-container {
+      padding: 0;
+    }
     .recent-posts-container {
       .list {
         display: block;
@@ -133,18 +140,20 @@ class BlogPostTemplate extends React.Component<IProps, {}> {
       <Layout location={this.props.location}>
         <StyledContainer>
           <Seo title={post.title} />
-          <div className="header-container">
-            <h1>{post.title}</h1>
-            <div className="published-date">
-              {post.publishedDate}
+          <div className="reading-section-container">
+            <div className="header-container">
+              <h1>{post.title}</h1>
+              <div className="published-date">
+                {post.publishedDate}
+              </div>
+              <div className="hero-image">
+                <Image sizes={post.heroImage.sizes} alt="" />
+              </div>
             </div>
-            <div className="hero-image">
-              <Image sizes={post.heroImage.sizes} alt="" />
-            </div>
+            <div className="body-container"
+              dangerouslySetInnerHTML={{ __html: post.body.childMarkdownRemark.html }}
+            />
           </div>
-          <div className="body-container"
-            dangerouslySetInnerHTML={{ __html: post.body.childMarkdownRemark.html }}
-          />
           <div className="recent-posts-container">
             <h1 className="title">Recent Posts</h1>
             <div className="list">
