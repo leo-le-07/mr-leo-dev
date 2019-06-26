@@ -88,9 +88,6 @@ export const pageQuery = graphql`
       edges {
         node {
           title
-          body {
-            body
-          }
           description
           heroImage {
             sizes(maxWidth: 663, maxHeight: 338, resizingBehavior: SCALE) {
