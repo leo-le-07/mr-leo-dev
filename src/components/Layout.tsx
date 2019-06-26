@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 
 import Navigation from '@components/Navigation'
+import Footer from '@components/Footer'
 
 import { rhythm, scale } from '@utils/typography'
 import { colors } from '@constants/index'
@@ -44,6 +45,10 @@ const MainContainer = styled.div`
   }
 `
 
+const FooterContainer = styled.div`
+  margin-top: ${props => props.theme.rhythm(1)};
+`
+
 class Layout extends React.Component<ILayout, {}> {
   render() {
     const { children } = this.props
@@ -57,6 +62,9 @@ class Layout extends React.Component<ILayout, {}> {
           <MainContainer>
             <main>{children}</main>
           </MainContainer>
+          <FooterContainer>
+            <Footer />
+          </FooterContainer>
         </AppContainer>
       </ThemeProvider>
     )

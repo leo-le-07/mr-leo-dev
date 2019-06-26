@@ -1,17 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import Image from 'gatsby-image'
 
 interface IProps {
   title: string
   slug: string
   publishedDate: string
   description: string
-  heroImage: string
+  heroImage: {
+    sizes: {
+      aspectRatio: number,
+      src: string,
+      srcSet: string,
+      sizes: string,
+    }
+  }
 }
 
 const StyledContainer = styled.div`
   width: 33.3333%;
+  margin-bottom: ${props => props.theme.rhythm(1.25)};
 
   article {
     padding-right: ${props => props.theme.rhythm(1)};
@@ -82,7 +91,7 @@ const ThumbnailPost = (props: IProps) => {
       <article>
         <Link to={`/${slug}`}>
           <div className="thumb">
-            <img src={heroImage} alt="" />
+            <Image sizes={heroImage.sizes} alt="" />
           </div>
           <div className="content">
             <h2>{title}</h2>
