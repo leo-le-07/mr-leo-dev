@@ -6,6 +6,21 @@ import Image from 'gatsby-image'
 
 import Layout from '@components/Layout'
 import Seo from '@components/Seo'
+import RecentPost from '@components/RecentPost'
+
+interface IRecentPost {
+  title: string
+  slug: string
+  publishedDate: string
+  heroImage: {
+    sizes: {
+      aspectRatio: number,
+      src: string,
+      srcSet: string,
+      sizes: string,
+    }
+  }
+}
 
 interface IProps {
   pageContext: {
@@ -48,6 +63,8 @@ const StyledContainer = styled.div`
   }
 
   .body-container {
+    margin-bottom: ${props => props.theme.rhythm(4.25)};
+
     blockquote {
       ${props => ({ ...props.theme.scale(0.5) })}
       border-left-color: ${props => props.theme.colors.primary};
@@ -57,11 +74,51 @@ const StyledContainer = styled.div`
       width: 100%;
     }
   }
+
+  .recent-posts-container {
+    .title {
+      text-transform: uppercase;
+      position: relative;
+      padding-left: ${props => props.theme.rhythm(3 / 4)};
+
+      &::before {
+        content: '';
+        background-color: ${props => props.theme.colors.primary};
+        width: 5px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+
+      .recent-post {
+        width: 33.3333%;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .recent-posts-container {
+      .list {
+        display: block;
+
+        .recent-post {
+          width: 100%;
+        }
+      }
+    }
+  }
 `
 
 class BlogPostTemplate extends React.Component<IProps, {}> {
   render() {
     const post = get(this.props, 'data.postDetails')
+    const recentPosts = get(this.props, 'data.recentPosts.edges')
 
     return (
       <Layout location={this.props.location}>
@@ -79,6 +136,22 @@ class BlogPostTemplate extends React.Component<IProps, {}> {
           <div className="body-container"
             dangerouslySetInnerHTML={{ __html: post.body.childMarkdownRemark.html }}
           />
+          <div className="recent-posts-container">
+            <h1 className="title">Recent Posts</h1>
+            <div className="list">
+              {recentPosts.map(({ node }: { node: IRecentPost }) => (
+                <div className="recent-post">
+                  <RecentPost
+                    key={node.slug}
+                    title={node.title}
+                    publishedDate={node.publishedDate}
+                    heroImage={node.heroImage}
+                    slug={node.slug}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </StyledContainer>
       </Layout>
     )
@@ -103,6 +176,26 @@ export const pageQuery = graphql`
       body {
         childMarkdownRemark {
           html
+        }
+      }
+    }
+    recentPosts: allContentfulBlogPost(
+      sort: { fields: [publishedDate], order: DESC }
+      filter: {
+        slug: { ne: $slug }
+      }
+      limit: 6
+    ) {
+      edges {
+        node {
+          slug
+          title
+          publishedDate(formatString: "MMM DD, YYYY")
+          heroImage {
+            sizes(maxWidth: 192, maxHeight: 120, resizingBehavior: SCALE) {
+             ...GatsbyContentfulSizes_withWebp
+            }
+          }
         }
       }
     }
