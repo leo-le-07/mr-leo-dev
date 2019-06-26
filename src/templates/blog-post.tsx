@@ -74,6 +74,17 @@ const StyledContainer = styled.div`
     img {
       width: 100%;
     }
+
+    .md-figure {
+      figcaption {
+        text-align: center;
+        font-style: italic;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
   }
 
   .recent-posts-container {
@@ -142,9 +153,8 @@ class BlogPostTemplate extends React.Component<IProps, {}> {
             <h1 className="title">Recent Posts</h1>
             <div className="list">
               {recentPosts.map(({ node }: { node: IRecentPost }) => (
-                <div className="recent-post">
+                <div className="recent-post" key={node.slug}>
                   <RecentPost
-                    key={node.slug}
                     title={node.title}
                     publishedDate={node.publishedDate}
                     heroImage={node.heroImage}

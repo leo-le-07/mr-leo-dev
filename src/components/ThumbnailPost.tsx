@@ -22,6 +22,10 @@ const StyledContainer = styled.div`
   width: 33.3333%;
   margin-bottom: ${props => props.theme.rhythm(1.25)};
 
+  h2 {
+    margin-top: ${props => props.theme.rhythm(0.25)};
+  }
+
   article {
     padding-right: ${props => props.theme.rhythm(1)};
 

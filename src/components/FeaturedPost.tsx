@@ -19,6 +19,10 @@ interface IProps {
 }
 
 const StyledContainer = styled.div`
+  h2 {
+    margin-top: ${props => props.theme.rhythm(0.25)};
+  }
+
   article {
     display: flex;
 

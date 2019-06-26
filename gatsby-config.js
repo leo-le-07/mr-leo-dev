@@ -35,12 +35,12 @@ module.exports = {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
-          "@pages": path.resolve(__dirname, 'src/pages'),
-          "@components": path.resolve(__dirname, 'src/components'),
-          "@utils": path.resolve(__dirname, 'src/utils'),
-          "@constants": path.resolve(__dirname, 'src/constants'),
-          "@templates": path.resolve(__dirname, 'src/templates'),
-          "@static": path.resolve(__dirname, 'src/static'),
+          "@src": "src",
+          "@pages": "src/pages",
+          "@components": "src/components",
+          "@utils": "src/utils",
+          "@constants": "src/constants",
+          "@templates": "src/templates",
         },
         extensions: [],
       },
@@ -73,9 +73,14 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: `gatsby-remark-figure-caption`,
+            options: { figureClassName: 'md-figure' },
+          },
+          {
+            resolve: `gatsby-remark-images-contentful`,
             options: {
               maxWidth: 750,
+              showCaptions: true,
             },
           },
           `gatsby-remark-prismjs`,
