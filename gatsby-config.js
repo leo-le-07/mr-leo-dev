@@ -26,7 +26,7 @@ module.exports = {
     title: `Mr Leo`,
     author: `Mr Leo`,
     description: `Mr Leo blog and portfolio`,
-    siteUrl: `https://www.mrleo.dev/`,
+    siteUrl: `https://www.mrleo.dev`,
   },
   plugins: [
     `gatsby-plugin-typescript`,
@@ -83,6 +83,12 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-react-helmet`
-  ]
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `https-www-mrleo-dev`,
+      },
+    },
+  ],
 }

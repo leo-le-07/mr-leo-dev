@@ -7,6 +7,7 @@ import Image from 'gatsby-image'
 import Layout from '@components/Layout'
 import Seo from '@components/Seo'
 import RecentPost from '@components/RecentPost'
+import Disqus from 'gatsby-plugin-disqus'
 
 interface IRecentPost {
   title: string
@@ -119,6 +120,7 @@ class BlogPostTemplate extends React.Component<IProps, {}> {
   render() {
     const post = get(this.props, 'data.postDetails')
     const recentPosts = get(this.props, 'data.recentPosts.edges')
+    const siteConfig = get(this.props, 'data.site.siteMetadata')
 
     return (
       <Layout location={this.props.location}>
@@ -152,6 +154,13 @@ class BlogPostTemplate extends React.Component<IProps, {}> {
               ))}
             </div>
           </div>
+          <div className="comment-container">
+            <Disqus
+              identifier={post.slug}
+              title={post.title}
+              url={`${siteConfig.siteUrl}${this.props.location.pathname}`}
+            />
+          </div>
         </StyledContainer>
       </Layout>
     )
@@ -162,6 +171,11 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     postDetails: contentfulBlogPost(slug: { eq: $slug }) {
       title
       description
