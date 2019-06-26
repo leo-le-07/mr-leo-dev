@@ -95,5 +95,11 @@ module.exports = {
         shortname: `https-www-mrleo-dev`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-101168692-2`,
+      },
+    }
   ],
 }
