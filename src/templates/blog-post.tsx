@@ -50,6 +50,7 @@ interface IProps {
 const StyledContainer = styled.div`
   .reading-section-container {
     padding: 0  ${props => props.theme.rhythm(5)};
+    margin-bottom: ${props => props.theme.rhythm(4.25)};
   }
 
   .header-container {
@@ -69,8 +70,6 @@ const StyledContainer = styled.div`
   }
 
   .body-container {
-    margin-bottom: ${props => props.theme.rhythm(4.25)};
-
     blockquote {
       ${props => ({ ...props.theme.scale(0.5) })}
       border-left-color: ${props => props.theme.colors.primary};
