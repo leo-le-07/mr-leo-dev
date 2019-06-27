@@ -13,6 +13,7 @@ interface IRecentPost {
   title: string
   slug: string
   publishedDate: string
+  reference: string
   heroImage: {
     sizes: {
       aspectRatio: number,
@@ -87,6 +88,12 @@ const StyledContainer = styled.div`
     }
   }
 
+  .reference-container {
+    font-style: italic;
+    color: ${props => props.theme.colors.gray500};
+    text-align: right;
+  }
+
   .recent-posts-container {
     .title {
       text-transform: uppercase;
@@ -153,6 +160,11 @@ class BlogPostTemplate extends React.Component<IProps, {}> {
             <div className="body-container"
               dangerouslySetInnerHTML={{ __html: post.body.childMarkdownRemark.html }}
             />
+            {post.reference && (
+              <div className="reference-container">
+                <div className="name">Reference: {post.reference}</div>
+              </div>
+            )}
           </div>
           <div className="recent-posts-container">
             <h1 className="title">Recent Posts</h1>
@@ -207,6 +219,7 @@ export const pageQuery = graphql`
           html
         }
       }
+      reference
     }
     recentPosts: allContentfulBlogPost(
       sort: { fields: [publishedDate], order: DESC }
